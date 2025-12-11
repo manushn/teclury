@@ -6,22 +6,20 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.inner}>
 
-        {/* Brand */}
+      
         <div className={styles.brand}>
           <h3 className={styles.logo}>Teclury</h3>
           <p className={styles.tagline}>Building reliable AI for real-world operations.</p>
         </div>
 
-        {/* Navigation links */}
+        
         <div className={styles.links}>
           <h4>Company</h4>
           <Link href="/about">About</Link>
-          <Link href="/services">Services</Link>
           <Link href="/products">Products</Link>
-          <Link href="/contact">Contact</Link>
         </div>
 
-        {/* AI solution links */}
+        
         <div className={styles.links}>
           <h4>AI Solutions</h4>
           <Link href="/ai/assistants">Assistants</Link>
@@ -30,7 +28,7 @@ export default function Footer() {
           <Link href="/ai/automation">Automation</Link>
         </div>
 
-        {/* Social */}
+        
         <div className={styles.links}>
           <h4>Social</h4>
           <a href="#">LinkedIn</a>
@@ -38,7 +36,7 @@ export default function Footer() {
           <a href="#">Twitter</a>
         </div>
 
-        {/* Contact Section */}
+        
         <div className={styles.links}>
           <h4>Contact</h4>
 

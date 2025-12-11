@@ -20,6 +20,8 @@
 }
 .steps {
   display: grid;
+  align-items: center;
+  justify-content: center;
   gap: 28px;
   margin-top: 40px;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

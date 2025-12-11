@@ -26,7 +26,7 @@ export default function Home(){
             </div>
 
             <div className={styles.pill}>
-              Stack: React • Node • Next • Postgres • Docker • MongoDB
+              Stack: React • Node • Next • Postgres • Docker • MongoDB • FastAPI
             </div>
           </div>
 
