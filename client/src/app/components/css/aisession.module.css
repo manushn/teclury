@@ -1,0 +1,141 @@
+.sectionmain {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
+.section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  padding: 40px 20px;
+  width: 90%;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+   width: 700px;
+    position: absolute;
+}
+
+.subtitle {
+  color: #6b7280;
+  font-size: 16px;
+  margin-top: 60px;
+}
+
+
+.cardGrid {
+  display: grid;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: left;
+  max-width: 500px;
+}
+.card:hover{
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+.cardtop{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.cardtop h3{
+    margin-left: 12px;
+    font-size: 1.2rem;
+}
+.cardImg {
+  margin-bottom: 12px;
+}
+
+.small {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.labCard {
+  text-align: center;
+}
+.labhead{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.labhead h3{
+    margin-left: 12px;
+    font-size: 1.2rem;
+}
+
+.roadmapWrap {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.roadmap {
+  margin-top: 14px;
+  display: grid;
+  gap: 14px;
+}
+
+.road {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.roadIcon {
+  flex-shrink: 0;
+}
+
+
+
+@media (max-width: 900px) {
+  .section {
+    grid-template-columns: 1fr;
+  }
+  .title{
+    width: 800px;
+  }
+
+  .right {
+    margin-top: 24px;
+  }
+  .cardGrid {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 1.6rem;
+    width: 500px;
+  }
+  .subtitle{
+    margin-top: 80px;
+  }
+
+  .card,
+  .road {
+    padding: 12px;
+  }
+}
