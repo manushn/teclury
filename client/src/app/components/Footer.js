@@ -21,6 +21,7 @@ export default function Footer() {
           <Link href="/contact">Contact</Link>
         </div>
 
+        {/* AI solution links */}
         <div className={styles.links}>
           <h4>AI Solutions</h4>
           <Link href="/ai/assistants">Assistants</Link>
@@ -29,11 +30,30 @@ export default function Footer() {
           <Link href="/ai/automation">Automation</Link>
         </div>
 
+        {/* Social */}
         <div className={styles.links}>
           <h4>Social</h4>
           <a href="#">LinkedIn</a>
           <a href="#">GitHub</a>
           <a href="#">Twitter</a>
+        </div>
+
+        {/* Contact Section */}
+        <div className={styles.links}>
+          <h4>Contact</h4>
+
+          <p className={styles.contactItem}>
+            📞 <a href="tel:+916382360895">+91 6382360895</a>
+          </p>
+
+          <p className={styles.contactItem}>
+            ✉️ <a href="mailto:hello@teclury.com">hello@teclury.com</a>
+          </p>
+
+          <p className={styles.contactItem}>
+            🟢 <a href="https://wa.me/916382360895" target="_blank">Click to Chat on Whatsapp</a>
+          </p>
+          
         </div>
 
       </div>

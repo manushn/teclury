@@ -6,7 +6,7 @@
   --shadow-md: 0 14px 36px rgba(16,24,64,0.06);
 }
 
-/* Footer container */
+
 .footer {
   background: linear-gradient(180deg, #f7faff, #ffffff);
   padding: 40px 20px 20px;
@@ -15,7 +15,6 @@
   border-top: 1px solid rgba(16,24,64,0.06);
 }
 
-/* Inner grid layout */
 .inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -24,7 +23,6 @@
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 }
 
-/* Brand block */
 .brand {
   max-width: 260px;
 }
@@ -67,7 +65,7 @@
   transform: translateX(4px);
 }
 
-/* Bottom area */
+
 .bottom {
   margin-top: 40px;
   text-align: center;
@@ -81,7 +79,29 @@
   margin: 0;
 }
 
-/* Responsive small screens */
+
+.contactItem {
+  margin: 0 0 6px 0;
+  font-size: 14px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+}
+
+.contactItem a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  margin-left: 5px;
+}
+
+
+.contactItem a:hover {
+  color: var(--accent1);
+}
+
+
+
 @media (max-width: 600px) {
   .inner {
     gap: 24px;

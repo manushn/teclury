@@ -27,8 +27,8 @@ export default function Header() {
         </div>
 
         <div className={styles.header_right}>
-          <a href="#">Services</a>
-          <a href="#">AI</a>
+          <a href="#">Our Products</a>
+          <a href="#">AI Lab</a>
           <a href="#">Our Process</a>
           <a href="#">Contact</a>
 
