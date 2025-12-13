@@ -71,9 +71,7 @@
   transition: 0.4s;
 }
 
-.login_button:hover {
-  transform: translateY(-3px);
-}
+
 
 /* MOBILE ACTION ROW */
 .mobile_actions {
@@ -142,22 +140,29 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* MOBILE BEHAVIOR */
+
 @media (max-width: 790px) {
-  .header_right a {
-    display: none;
-  }
-  .hbutton_container {
-    display: none;
+ 
+  .header_right {
+    display: none; 
   }
 
+ 
   .mobile_actions {
     display: flex;
+    z-index: 10001; 
   }
+
   .mobile_project_btn {
     display: block;
   }
+
   .mobile_menu_icon {
     display: block;
+  }
+  
+  
+  .mobile_dropdown {
+    z-index: 10002;
   }
 }

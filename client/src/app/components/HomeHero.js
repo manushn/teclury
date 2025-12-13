@@ -1,5 +1,7 @@
 import styles from "./css/homehero.module.css";
 import Image from "next/image";
+import Link from "next/link";
+
 
 export default function Home(){
     return(
@@ -22,11 +24,13 @@ export default function Home(){
             </p>
 
             <div className={styles.hbutton_container2}>
+               <Link href="/startproject">
               <button className={styles.login_button2}>Start a Project</button>
+              </Link>
             </div>
 
             <div className={styles.pill}>
-              Stack: React • Node • Next • Postgres • Docker • MongoDB • FastAPI
+              Stack: React • Node • NextJS • Postgres • Docker • MongoDB • FastAPI
             </div>
           </div>
 

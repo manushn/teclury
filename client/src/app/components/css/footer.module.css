@@ -10,7 +10,7 @@
 .footer {
   background: linear-gradient(180deg, #f7faff, #ffffff);
   padding: 40px 20px 20px;
-  margin-top: 40px;
+  padding-top: 40px;
   box-shadow: var(--shadow-md);
   border-top: 1px solid rgba(16,24,64,0.06);
 }
@@ -110,6 +110,6 @@
   .brand{
     display: flex;
     flex-direction: column;
-    align-items: center;  
+    align-items: left  
   }
 }

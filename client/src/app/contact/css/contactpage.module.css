@@ -1,0 +1,156 @@
+/* PAGE WRAPPER */
+.contactmain {
+  padding: 140px 16px 80px;
+  background: #f9fafb;
+}
+
+.contact {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.contact h1 {
+  font-size: 2.4rem;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #555;
+  margin-bottom: 40px;
+}
+
+/* MAIN LAYOUT */
+.formmain {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* LEFT FORM CARD */
+.formleft {
+    min-width: 450px;
+  display: flex;
+  flex-direction: column;
+
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.formleft label {
+  margin: 14px 0 6px;
+  font-weight: 500;
+}
+
+.formleft input,
+.formleft textarea {
+  width: 90%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  outline: none;
+}
+
+.formleft input:focus,
+.formleft textarea:focus {
+  border-color: rgb(36, 119, 243);
+}
+
+/* SUBMIT BUTTON */
+.formleft button {
+  margin-top: 24px;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: rgb(36, 119, 243);
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.formleft button:hover {
+  background: rgb(29, 99, 204);
+}
+
+.formleft button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* RIGHT CONTACT CARD */
+.formright {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  min-width: 400px;
+}
+
+.formright h2 {
+  margin-bottom: 10px;
+}
+
+.formright p {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.contactDetails div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.contactDetails a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* 📱 TABLET & MOBILE */
+@media (max-width: 1100px) and (min-width: 651px) {
+  .formmain {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contact h1 {
+    font-size: 2rem;
+  }
+  .formleft{
+    min-width: 600px;
+  }
+  .formright{
+    min-width: 500px;
+  }
+  .formleft,
+  .formright {
+    padding: 22px;
+  }
+}
+
+/* 📱 SMALL MOBILE */
+@media (max-width: 650px) {
+  .contactmain {
+    padding-top: 120px;
+  }
+  .formmain {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .formleft{
+    min-width: 280px;
+  }
+  .formright{
+    min-width: 200px;
+  }
+  .formleft button {
+    font-size: 0.95rem;
+  }
+}
+

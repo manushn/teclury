@@ -1,0 +1,80 @@
+.wrapper {
+  padding: 140px 16px 80px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.subtitle {
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.card {
+  background: #fff;
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.card h2 {
+  margin-bottom: 10px;
+}
+
+.tagline {
+  color: #666;
+  margin-bottom: 14px;
+}
+
+.card ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.card li {
+  margin-bottom: 8px;
+}
+
+.earlyAccess {
+  margin-top: 60px;
+  background: #f3f6ff;
+  padding: 32px;
+  border-radius: 16px;
+}
+
+.form {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.form input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.form button {
+  padding: 12px 22px;
+  border-radius: 8px;
+  border: none;
+  background: rgb(36, 119, 243);
+  color: #fff;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .productsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .form {
+    flex-direction: column;
+  }
+}
