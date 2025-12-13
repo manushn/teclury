@@ -22,10 +22,10 @@ export default function Footer() {
         
         <div className={styles.links}>
           <h4>AI Solutions</h4>
-          <Link href="/ai/assistants">Assistants</Link>
-          <Link href="/ai/rag">Search & RAG</Link>
-          <Link href="/ai/vision">Computer Vision</Link>
-          <Link href="/ai/automation">Automation</Link>
+          <Link href="/solutions/aiassistants">Assistants</Link>
+          <Link href="/solutions/rag">Search & RAG</Link>
+          <Link href="/solutions/computervision">Computer Vision</Link>
+          <Link href="/solutions/automation">Automation</Link>
         </div>
 
         

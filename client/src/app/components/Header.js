@@ -48,21 +48,18 @@ export default function Header() {
           <Link href="/contact">📞 Contact</Link>
 
           <div className={styles.hbutton_container}>
-            <button className={styles.login_button} onClick={handleStartProject}>
-              Start a Project
-            </button>
+            <a href="/startproject" className={styles.cta}>
+                🚀 Start a Project
+            </a>
           </div>
         </div>
 
        
         <div className={styles.mobile_actions}>
          
-          <button 
-            className={styles.mobile_project_btn} 
-            onClick={handleStartProject}
-          >
-            Start a Project
-          </button>
+          <a href="/startproject" className={styles.cta}>
+              🚀 Start a Project
+          </a>
           
           <div
             className={styles.mobile_menu_icon}

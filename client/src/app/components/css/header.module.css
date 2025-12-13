@@ -135,6 +135,47 @@
   color: #5063ff;
 }
 
+.hbutton_container a{
+  
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+  color: white;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.mobile_actions a{
+  
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+  color: white;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  font-size: 15px;
+}
+.mobile_actions a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(124,58,237,0.4);
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+  color: white;
+}
+
+.hbutton_container a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(124,58,237,0.4);
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+  color: white;
+}
+
 @keyframes fadeSlide {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }

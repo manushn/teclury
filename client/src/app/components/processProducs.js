@@ -18,22 +18,22 @@ export default function ProcessProducts() {
 
         <div className={styles.steps}>
           <div className={styles.step}>
-            <strong>Discover</strong>
+            <strong>🎯 Discover</strong>
             <div className={styles.small}>Goals, users, constraints</div>
           </div>
 
           <div className={styles.step}>
-            <strong>Prototype</strong>
+            <strong>🧩 Prototype</strong>
             <div className={styles.small}>MVPs to validate assumptions</div>
           </div>
 
           <div className={styles.step}>
-            <strong>Build</strong>
+            <strong>🧑‍💻 Build</strong>
             <div className={styles.small}>Sprints, tests and CI/CD</div>
           </div>
 
           <div className={styles.step}>
-            <strong>Operate</strong>
+            <strong>✅ Operate</strong>
             <div className={styles.small}>Monitoring, support & growth</div>
           </div>
         </div>

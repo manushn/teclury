@@ -100,6 +100,25 @@
 .homeimg_small{
   display: none;
 }
+.cta {
+  margin-top: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 24px;
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+  color: white;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(124,58,237,0.4);
+}
+
 
 @media (max-width: 950px) and (min-width: 701px){
     .home_container {

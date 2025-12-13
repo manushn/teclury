@@ -24,9 +24,9 @@ export default function Home(){
             </p>
 
             <div className={styles.hbutton_container2}>
-               <Link href="/startproject">
-              <button className={styles.login_button2}>Start a Project</button>
-              </Link>
+               <a href="/startproject" className={styles.cta}>
+                  🚀 Start a Project
+              </a>
             </div>
 
             <div className={styles.pill}>
