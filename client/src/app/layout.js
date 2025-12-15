@@ -23,6 +23,11 @@ export const metadata = {
   verification: {
     google: "L9iAehaDbmnMbo7ZQMnUg7_WrONq97ax2eBnsYyz2Fc",
   },
+  metadataBase: new URL("https://teclury.vercel.app/"),
+
+  alternates: {
+    canonical: "/",
+  },
   keywords: [
     "Teclury",
     "AI solutions",
