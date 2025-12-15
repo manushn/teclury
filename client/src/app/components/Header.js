@@ -46,6 +46,7 @@ export default function Header() {
           <Link href="/products">🚀 Our Products</Link>
           <Link href="/ailab">🧪 AI Lab</Link>
           <Link href="/contact">📞 Contact</Link>
+          <Link href="/about">ℹ️ About Us</Link>
 
           <div className={styles.hbutton_container}>
             <a href="/startproject" className={styles.cta}>
@@ -75,6 +76,7 @@ export default function Header() {
             <Link href="/products">🚀 Our Products</Link>
           <Link href="/ailab">🧪 AI Lab</Link>
           <Link href="/contact">📞 Contact</Link>
+           <Link href="/about">ℹ️ About Us</Link>
           </div>
         )}
       </div>

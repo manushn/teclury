@@ -20,6 +20,9 @@ export const metadata = {
   },
   description:
     "Teclury builds next-generation AI, web, and mobile solutions for startups and businesses. Scalable. Secure. Future-ready.",
+  verification: {
+    google: "L9iAehaDbmnMbo7ZQMnUg7_WrONq97ax2eBnsYyz2Fc",
+  },
   keywords: [
     "Teclury",
     "AI solutions",
@@ -42,7 +45,7 @@ export const metadata = {
     title: "Teclury – Next-Gen AI & Software Solutions",
     description:
       "We design and build AI-powered, scalable digital products for modern businesses.",
-    url: "https://yourdomain.com",
+    url: "https://teclury.vercel.app/",
     siteName: "Teclury",
     type: "website",
   },
