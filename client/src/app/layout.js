@@ -52,6 +52,22 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        {/* ✅ Structured Data (Brand Identity) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Teclury",
+              url: "https://teclury.vercel.app",
+              logo: "https://teclury.vercel.app/icon.png",
+            }),
+          }}
+        />
+      </head>
+
       <body
         className={`${geistSans.variable} ${geistMono.variable}`}
         suppressHydrationWarning
