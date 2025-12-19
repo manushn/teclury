@@ -1,7 +1,7 @@
 export default function sitemap() {
   return [
     {
-      url: "https://teclury.in.app/",
+      url: "https://teclury.in/",
       lastModified: new Date(),
     },
     {
