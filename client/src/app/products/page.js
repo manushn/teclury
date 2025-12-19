@@ -27,7 +27,7 @@ export default function ProductsPage() {
     e.preventDefault();
     if(Isloading) return;
     try{
-
+      setIsloading(true)
       const respons = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/early-access`, {
       name,
       email,

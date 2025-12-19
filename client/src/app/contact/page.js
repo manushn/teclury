@@ -46,6 +46,7 @@ export default function ContactPage() {
 
     try{
       if(loading) return;
+      setLoading(true)
       const respons =await axios.post( `${process.env.NEXT_PUBLIC_API_URL}/contact`, formData);
       
       if(respons.data.detail){
