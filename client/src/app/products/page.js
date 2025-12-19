@@ -10,6 +10,7 @@ export default function ProductsPage() {
 
   const [message,setmessage]=useState("");
   const [emessage,setemessage]=useState('');
+  const [Isloading,setIsloading]=useState(false);
 
   useEffect(()=>{
       setTimeout(()=>{
@@ -24,7 +25,10 @@ export default function ProductsPage() {
 
   const submitInterest = async(e) => {
     e.preventDefault();
-    const respons = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/early-access`, {
+    if(Isloading) return;
+    try{
+
+      const respons = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/early-access`, {
       name,
       email,
     });
@@ -33,6 +37,12 @@ export default function ProductsPage() {
       setName("");
       setEmail("");
     }else{setemessage("Submission failed");}
+
+    }catch(err){
+      console.log(`Error while sending product request:${err}`)
+    }finally{setIsloading(false)}
+
+    
   };
 
   return (
@@ -98,7 +108,7 @@ export default function ProductsPage() {
             onChange={(e) => setEmail(e.target.value.toLowerCase())}
             required
           />
-          <button type="submit">Notify Me 🚀</button>
+          <button type="submit">{ Isloading?("Saving.."):("Notify Me 🚀")}</button>
         </form>
         {message && <p className={s.successMessage}>{message}</p>}
         {emessage && <p className={s.errorMessage}>{emessage}</p>}

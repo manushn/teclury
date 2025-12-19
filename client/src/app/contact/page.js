@@ -15,6 +15,9 @@ export default function ContactPage() {
   const [loading, setLoading] = useState(false);
   const [emesage,setemessage]=useState("");
   const [message,setmessage]=useState("");
+  const [btncon,setbtncon]=useState("Submit")
+
+
 
   useEffect(()=>{
     setTimeout(()=>{

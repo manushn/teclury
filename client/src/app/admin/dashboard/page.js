@@ -37,7 +37,7 @@ export default function AdminPage() {
       const token = sessionStorage.getItem("admin_token");
       if (!token) return;
 
-      let url = `http://localhost:8000/admin/submissions?submission_type=${activeTab}&limit=10`;
+      let url = `${process.env.NEXT_PUBLIC_API_URL}/admin/submissions?submission_type=${activeTab}&limit=10`;
       if (!reset && cursor) {
         url += `&cursor=${cursor}`;
       }
@@ -64,6 +64,88 @@ export default function AdminPage() {
       setLoading(false);
     }
   }
+
+  // Render table headers based on active tab
+  const renderTableHeaders = () => {
+    switch (activeTab) {
+      case "CONTACT":
+        return (
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Message</th>
+            <th>Date</th>
+          </tr>
+        );
+      case "PROJECT":
+        return (
+          <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Company</th>
+            <th>Project Type</th>
+            <th>Budget</th>
+            <th>Details</th>
+            <th>Date</th>
+          </tr>
+        );
+      case "EARLY_ACCESS":
+        return (
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Date</th>
+          </tr>
+        );
+      default:
+        return null;
+    }
+  };
+
+  // Render table rows based on active tab
+  const renderTableRow = (item, index) => {
+    const formatDate = (dateStr) => {
+      return dateStr?.replace("T", " ").split(".")[0] || "-";
+    };
+
+    switch (activeTab) {
+      case "CONTACT":
+        return (
+          <tr key={index}>
+            <td>{item.name || "-"}</td>
+            <td>{item.email || "-"}</td>
+            <td>{item.phone || "-"}</td>
+            <td className={styles.details}>{item.message || "-"}</td>
+            <td>{formatDate(item.created_at)}</td>
+          </tr>
+        );
+      case "PROJECT":
+        return (
+          <tr key={index}>
+            <td>{item.fullname || "-"}</td>
+            <td>{item.email || "-"}</td>
+            <td>{item.phone || "-"}</td>
+            <td>{item.company || "-"}</td>
+            <td>{item.type || "-"}</td>
+            <td>{item.budget || "-"}</td>
+            <td className={styles.details}>{item.projectdetails || "-"}</td>
+            <td>{formatDate(item.created_at)}</td>
+          </tr>
+        );
+      case "EARLY_ACCESS":
+        return (
+          <tr key={index}>
+            <td>{item.name || "-"}</td>
+            <td>{item.email || "-"}</td>
+            <td>{formatDate(item.created_at)}</td>
+          </tr>
+        );
+      default:
+        return null;
+    }
+  };
 
   return (
     <div className={styles.container}>
@@ -94,38 +176,17 @@ export default function AdminPage() {
       {/* Table */}
       <div className={styles.tableWrapper}>
         <table className={styles.table}>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Phone</th>
-              <th>Details</th>
-              <th>Date</th>
-            </tr>
-          </thead>
+          <thead>{renderTableHeaders()}</thead>
           <tbody>
             {items.length === 0 && !loading && (
               <tr>
-                <td colSpan="5" className={styles.empty}>
+                <td colSpan="10" className={styles.empty}>
                   No records found
                 </td>
               </tr>
             )}
 
-            {items.map((item, index) => (
-              <tr key={index}>
-                <td>{item.name || item.fullname || "-"}</td>
-                <td>{item.email}</td>
-                <td>{item.phone || "-"}</td>
-                <td className={styles.details}>
-                  {item.message ||
-                    item.projectdetails ||
-                    "Early access request"}
-                </td>
-                <td>{item.created_at?.replace("T", " ").split(".")[0] || "-"}</td>
-
-              </tr>
-            ))}
+            {items.map((item, index) => renderTableRow(item, index))}
           </tbody>
         </table>
       </div>
@@ -136,6 +197,13 @@ export default function AdminPage() {
           <button onClick={() => fetchSubmissions(false)} disabled={loading}>
             {loading ? "Loading..." : "Load next 10"}
           </button>
+        </div>
+      )}
+
+      {/* Loading indicator */}
+      {loading && items.length === 0 && (
+        <div className={styles.loadingContainer}>
+          <p>Loading...</p>
         </div>
       )}
     </div>
