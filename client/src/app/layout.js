@@ -14,22 +14,26 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://teclury.in"),
+
   title: {
     default: "Teclury | Next-Gen AI & Software Solutions",
     template: "%s | Teclury",
   },
+
   description:
     "Teclury builds next-generation AI, web, and mobile solutions for startups and businesses. Scalable. Secure. Future-ready.",
-
-  metadataBase: new URL("https://teclury.in"),
-
-  verification: {
-    google: "L9iAehaDbmnMbo7ZQMnUg7_WrONq97ax2eBnsYyz2Fc",
-  },
 
   robots: {
     index: true,
     follow: true,
+  },
+
+  /** ✅ FAVICON — IMPORTANT FOR GOOGLE SEARCH */
+  icons: {
+    icon: "/favicon.ico",          // classic
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
 
   openGraph: {
@@ -53,7 +57,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        
+        {/* Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

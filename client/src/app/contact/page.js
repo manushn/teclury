@@ -25,6 +25,10 @@ export default function ContactPage() {
     },3000)
   },[emesage])
 
+   useEffect(()=>{
+      setmessage("");
+  },[emesage])
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     if(name==="email"){
@@ -39,9 +43,15 @@ export default function ContactPage() {
     e.preventDefault();
     setLoading(true);
 
+
     try{
       if(loading) return;
       const respons =await axios.post( `${process.env.NEXT_PUBLIC_API_URL}/contact`, formData);
+      
+      if(respons.data.detail){
+        setemessage(respons.data.detail)
+      }
+
       if(respons.data.message){
         
         setmessage("Form submitted successfully!");
@@ -51,8 +61,6 @@ export default function ContactPage() {
             phone: "",
             message: "",
           });
-      }else{
-        setemessage("Failed to submit the form. Please try again.");
       }
 
     }catch(err){

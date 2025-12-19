@@ -32,11 +32,14 @@ export default function ProductsPage() {
       name,
       email,
     });
+    if(respons.data.detail){
+      setemessage(respons.data.detail)
+    }
     if (respons.data.message) {
       setmessage("Thank you for registering! 🎉.  We'll keep you updated.😁");
       setName("");
       setEmail("");
-    }else{setemessage("Submission failed");}
+    }
 
     }catch(err){
       console.log(`Error while sending product request:${err}`)

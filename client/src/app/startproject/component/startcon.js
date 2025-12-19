@@ -10,8 +10,8 @@ export default function StartForm() {
         email: '',
         phone:'',
         projectdetails: '',
-        budget: 'less than  10,000Rs',
-        type:'Full-Stack Development',
+        budget: '10,000Rs - 50,000Rs',
+        type:'Web Development',
     });
 
     const [mailrror,setemailerror]=useState('');
@@ -106,6 +106,9 @@ export default function StartForm() {
         try{
             setLoading(true);
             const respons =await axios.post( `${process.env.NEXT_PUBLIC_API_URL}/start-project`, formData);
+            if(respons.data.detail){
+                setemessage(respons.data.detail)
+            }
             if(respons.data.message){
             setmessage("Form submitted successfully!");
             setFormData({
@@ -117,8 +120,6 @@ export default function StartForm() {
                 budget: 'less than  10,000Rs', 
                 type:'Full-Stack Development',
             });
-            }else{
-                setemessage("Failed to submit the form. Please try again.");
             }
         }catch(err){
             console.error("Error submitting form:", err);
@@ -210,10 +211,12 @@ export default function StartForm() {
                                 onChange={handleChange} 
                                 required
                             >
+                                <option value="Web Development">Web Development</option>
                                 <option value="Full-Stack Development">Full-Stack Development</option>
                                 <option value="AI Integration">AI Integration</option>
                                 <option value="Mobile App Development">Mobile App Development</option>
-                                <option value="Web Development">Web Development</option>
+                                <option value="Digital marketing">Digital marketing</option>
+                                
                             </select>
                             {emessage && <span className={styles.emessage}>{emessage}</span>}
                             {message && <span className={styles.message}>{message}</span>}
