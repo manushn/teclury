@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://teclury.vercel.app/sitemap.xml
+Sitemap: https://teclury.in/sitemap.xml

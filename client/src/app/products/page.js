@@ -1,17 +1,38 @@
 "use client";
 
 import s from "./css/products.module.css";
-import { useState } from "react";
+import { useState ,useEffect} from "react";
+import axios from "axios";
 
 export default function ProductsPage() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
 
-  const submitInterest = (e) => {
+  const [message,setmessage]=useState("");
+  const [emessage,setemessage]=useState('');
+
+  useEffect(()=>{
+      setTimeout(()=>{
+        setemessage("");
+      },4000)
+    },[emessage])
+
+  useEffect(()=>{
+      setmessage("");
+  },[emessage])
+
+
+  const submitInterest = async(e) => {
     e.preventDefault();
-    alert("🎉 Thanks! You’ll get early access updates soon.");
-    setName("");
-    setEmail("");
+    const respons = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/early-access`, {
+      name,
+      email,
+    });
+    if (respons.data.message) {
+      setmessage("Thank you for registering! 🎉.  We'll keep you updated.😁");
+      setName("");
+      setEmail("");
+    }else{setemessage("Submission failed");}
   };
 
   return (
@@ -74,11 +95,13 @@ export default function ProductsPage() {
             type="email"
             placeholder="Your email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value.toLowerCase())}
             required
           />
           <button type="submit">Notify Me 🚀</button>
         </form>
+        {message && <p className={s.successMessage}>{message}</p>}
+        {emessage && <p className={s.errorMessage}>{emessage}</p>}
       </div>
     </section>
   );

@@ -73,7 +73,7 @@
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    height: 280px;
+    height: 300px;
 }
 
 .formright form {
@@ -132,7 +132,20 @@
     font-size: 0.7rem;
     margin-left: 5px;
 }
-
+.emessage{
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    margin-left: 5px;
+    width: 100%;
+}
+.message{
+    color: green;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    margin-left: 5px;
+    
+}
 /* 📱 RESPONSIVE */
 @media (max-width: 1150px) {
     .formmain {

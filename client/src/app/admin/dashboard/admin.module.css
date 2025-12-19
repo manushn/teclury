@@ -1,0 +1,103 @@
+.container {
+  padding: 30px;
+  min-height: 100vh;
+  background: #f7f9fc;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tabBtn {
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background: white;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.activeTab {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+/* Error */
+.error {
+  color: #dc2626;
+  margin-bottom: 10px;
+}
+
+/* Table */
+.tableWrapper {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead {
+  background: #f1f5f9;
+}
+
+.table th,
+.table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+  font-size: 14px;
+}
+
+.table th {
+  font-weight: 600;
+}
+
+.details {
+  max-width: 350px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.empty {
+  text-align: center;
+  padding: 30px;
+  color: #6b7280;
+}
+
+/* Pagination */
+.loadMore {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.loadMore button {
+  padding: 10px 20px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.loadMore button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

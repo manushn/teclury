@@ -1,18 +1,11 @@
 import styles from "./css/about.module.css";
 import Image from "next/image";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 
-export const metadata = {
-  title: "About Us | Teclury",
-  description:
-    "Teclury builds full-stack & AI-powered solutions while empowering young innovators through open resources and real engineering guidance.",
-};
 
 export default function AboutPage() {
   return (
     <main className={styles.pageContainer}>
-        <Header />
+        
       
       <section className={styles.hero}>
         <div className={styles.heroEmoji}>🚀</div>
@@ -148,13 +141,13 @@ export default function AboutPage() {
 
             <div className={styles.founderCard}>
               <Image 
-                src="/founders/bharath2.png"
+                src="/founders/bharathraji.png"
                 width={150}
                 height={150}
-                alt="Bharath Raji"
+                alt="BharathRaji"
                 className={styles.avatar}
               />
-              <h3>Bharath Raji — Co-Founder & CEO</h3>
+              <h3>Bharathraji — Co-Founder & CEO</h3>
               <p>
                 AI Engineer & Trainer leading Teclury’s technical and educational mission.
               </p>
@@ -178,11 +171,11 @@ export default function AboutPage() {
           <p>📚 Open-source projects for learning</p>
         </div>
 
-        <a href="/contact" className={styles.ctaButton}>
+        <a href="/startproject" className={styles.ctaButton}>
           Work With Us →
         </a>
       </section>
-        <Footer/>
+        
     </main>
   );
 }

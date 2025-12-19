@@ -19,12 +19,12 @@ export const metadata = {
   robots: {
     index: true,
     follow: true,
-  },
+  }, 
   openGraph: {
     title: "Contact Teclury",
     description:
       "Have an idea or need help? Contact Teclury and get expert guidance on your next digital product.",
-    url: "https://yourdomain.com/contact",
+    url: "https://teclury.in/contact",
     siteName: "Teclury",
     type: "website",
   },

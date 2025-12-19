@@ -1,6 +1,7 @@
 "use client";
 import styles from "../css/startcon.module.css";
-import { useState } from "react";
+import { useState ,useEffect} from "react";
+import axios from "axios";
 
 export default function StartForm() {
     const [formData, setFormData] = useState({
@@ -8,13 +9,27 @@ export default function StartForm() {
         company: '',
         email: '',
         phone:'',
-        projectDetails: '',
+        projectdetails: '',
         budget: 'less than  10,000Rs',
-        Type:'Full-Stack Development',
+        type:'Full-Stack Development',
     });
 
     const [mailrror,setemailerror]=useState('');
     const [phoneerror,setphoneerror]=useState('');
+    const [emessage,setemessage]=useState('');
+    const [message,setmessage]=useState('');
+    const [loading, setLoading] = useState(false);
+
+    useEffect(()=>{
+        setTimeout(()=>{
+          setemessage("");
+        },4000)
+      },[emessage])
+
+    useEffect(()=>{
+        setmessage("");
+    },[emessage])
+    
 
     const validateEmail = (email) => {
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -28,7 +43,12 @@ export default function StartForm() {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+        if(name==="email"){
+            setFormData((prev) => ({ ...prev, [name]: value.replace(/\s/g, "").toLowerCase()}));
+        }else{
+            setFormData((prev) => ({ ...prev, [name]: value }));
+        }
+       
         if (name === 'email') {
             if (!validateEmail(value)) {
                 setemailerror('Invalid email address');
@@ -45,11 +65,67 @@ export default function StartForm() {
         }
     };
 
-    const handleSubmit = (e) => {
+    const validateForm = () => {
+    if (!formData.fullname.trim())
+      return setemessage("Full name is required"), false;
+
+    if (!formData.company.trim())
+      return setemessage("Company name is required"), false;
+
+    if (!formData.email.trim())
+      return setemailerror("Email is required"), false;
+
+    if (!validateEmail(formData.email))
+      return setemailerror("Invalid email address"), false;
+
+    if (!formData.phone.trim())
+      return setphoneerror("Phone number is required"), false;
+
+    if (!validateMobile(formData.phone))
+      return setphoneerror("Phone number must be 10 digits"), false;
+
+    if (!formData.projectdetails.trim())
+      return setemessage("Project details are required"), false;
+
+    if (formData.projectdetails.length < 20)
+      return (
+        setemessage(
+          "Project details must be at least 20 characters"
+        ),
+        false
+      );
+
+    return true;
+  };
+
+    const handleSubmit = async(e) => {
         e.preventDefault();
-        
-        console.log('Form submitted:', formData);
-        alert('form clcked')
+        if(loading) return;
+        if (!validateForm()) return;
+
+        try{
+            setLoading(true);
+            const respons =await axios.post( `${process.env.NEXT_PUBLIC_API_URL}/start-project`, formData);
+            if(respons.data.message){
+            setmessage("Form submitted successfully!");
+            setFormData({
+                fullname: '',
+                company: '',
+                email: '',
+                phone:'',
+                projectdetails: '',
+                budget: 'less than  10,000Rs', 
+                type:'Full-Stack Development',
+            });
+            }else{
+                setemessage("Failed to submit the form. Please try again.");
+            }
+        }catch(err){
+            console.error("Error submitting form:", err);
+            setemessage("Failed to submit the form. Please try again.");
+        }finally{
+            setLoading(false);
+        }
     };
 
     return(
@@ -98,11 +174,11 @@ export default function StartForm() {
                                 required 
                             />
                             {phoneerror && <span className={styles.error}>{phoneerror}</span>}
-                            <label htmlFor="projectDetails">Project details</label>
+                            <label htmlFor="projectdetails">Project details</label>
                             <textarea 
-                                id="projectDetails" 
-                                name="projectDetails" 
-                                value={formData.projectDetails} 
+                                id="projectdetails" 
+                                name="projectdetails" 
+                                value={formData.projectdetails} 
                                 onChange={handleChange} 
                                 required 
                             ></textarea>
@@ -126,11 +202,11 @@ export default function StartForm() {
                                 <option value="more than 1,00,000Rs">More than 1,00,000Rs</option>
                             </select>
 
-                            <label htmlFor="Type">Project Type</label>
+                            <label htmlFor="type">Project Type</label>
                             <select 
-                                id="Type" 
-                                name="Type" 
-                                value={formData.Type} 
+                                id="type" 
+                                name="type" 
+                                value={formData.type} 
                                 onChange={handleChange} 
                                 required
                             >
@@ -139,7 +215,8 @@ export default function StartForm() {
                                 <option value="Mobile App Development">Mobile App Development</option>
                                 <option value="Web Development">Web Development</option>
                             </select>
-
+                            {emessage && <span className={styles.emessage}>{emessage}</span>}
+                            {message && <span className={styles.message}>{message}</span>}
                             <button type="submit" className={styles.submitButton}>Request Project Proposal</button>
                         </form>
                     </div>

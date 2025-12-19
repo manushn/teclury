@@ -41,15 +41,15 @@ export default function Footer() {
           <h4>Contact</h4>
 
           <p className={styles.contactItem}>
-            📞 <a href="tel:+916382360895">+91 6382360895</a>
+            📞 <a href="tel:+918526521533">+918526521533</a>
           </p>
 
           <p className={styles.contactItem}>
-            ✉️ <a href="mailto:hello@teclury.com">hello@teclury.com</a>
+            ✉️ <a href="mailto:contact@teclury.in">contact@teclury.in</a>
           </p>
 
           <p className={styles.contactItem}>
-            🟢 <a href="https://wa.me/916382360895" target="_blank">Click to Chat on Whatsapp</a>
+            🟢 <a href="https://wa.me/918526521533" target="_blank">Click to Chat on Whatsapp</a>
           </p>
           
         </div>

@@ -68,6 +68,14 @@
   color: #fff;
   cursor: pointer;
 }
+.successMessage {
+  color: green;
+  margin-top: 10px;
+}
+.errorMessage {
+  color: red;
+  margin-top: 10px;
+}
 
 @media (max-width: 768px) {
   .productsGrid {

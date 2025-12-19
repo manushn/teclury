@@ -1,7 +1,8 @@
 "use client";
 
 import s from "./css/contactpage.module.css";
-import { useState } from "react";
+import { use, useState ,useEffect} from "react";
+import axios from "axios";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -12,28 +13,52 @@ export default function ContactPage() {
   });
 
   const [loading, setLoading] = useState(false);
+  const [emesage,setemessage]=useState("");
+  const [message,setmessage]=useState("");
+
+  useEffect(()=>{
+    setTimeout(()=>{
+      setemessage("");
+    },3000)
+  },[emesage])
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    if(name==="email"){
+      setFormData((prev) => ({ ...prev, [name]: value.replace(/\s/g, "").toLowerCase()}));
+    }else{
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
+    
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    console.log("Contact form data:", formData);
+    try{
+      if(loading) return;
+      const respons =await axios.post( `${process.env.NEXT_PUBLIC_API_URL}/contact`, formData);
+      if(respons.data.message){
+        
+        setmessage("Form submitted successfully!");
+        setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            message: "",
+          });
+      }else{
+        setemessage("Failed to submit the form. Please try again.");
+      }
 
-    alert("Thanks for contacting Teclury! We’ll get back to you soon.");
+    }catch(err){
+      console.error("Error submitting form:", err);
+    }finally{
+       setLoading(false);
+    }
 
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-    });
-
-    setLoading(false);
+   
   };
 
   return (
@@ -43,7 +68,7 @@ export default function ContactPage() {
         <p className={s.subtitle}>We would love to hear from you 🥰</p>
 
         <div className={s.formmain}>
-          {/* LEFT – FORM */}
+          
           <form className={s.formleft} onSubmit={handleSubmit}>
             <label>Your Name</label>
             <input
@@ -85,6 +110,8 @@ export default function ContactPage() {
               required
             />
 
+            {emesage && <p className={s.emesage}>{emesage}</p>}
+            {message && <p className={s.message}>{message}</p>}
             <button type="submit" disabled={loading}>
               {loading ? "Sending..." : "Submit"}
             </button>
@@ -101,22 +128,22 @@ export default function ContactPage() {
             <div className={s.contactDetails}>
               <div>
                 <span>✉️</span>
-                <a href="mailto:contact@teclury.com">
-                  contact@teclury.com
+                <a href="mailto:contact@teclury.in">
+                  contact@teclury.in
                 </a>
               </div>
 
               <div>
                 <span>📞</span>
-                <a href="tel:+916382360895">
-                  +91 63823 60895
+                <a href="tel:+918526521533">
+                  +91 8526521533
                 </a>
               </div>
 
               <div>
                 <span>🟢</span>
                 <a
-                  href="https://wa.me/916382360895"
+                  href="https://wa.me/918526521533"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
