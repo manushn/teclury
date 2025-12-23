@@ -130,10 +130,10 @@ export default function AboutPage() {
                 src="/founders/manush.jpeg"
                 width={150}
                 height={150}
-                alt="Manush"
+                alt="ManushN"
                 className={styles.avatar}
               />
-              <h3>Manush — Founder & COO</h3>
+              <h3>Manush N — Founder & COO</h3>
               <p>
                 Full-stack & AI engineer focused on scalable systems and product development.
               </p>
@@ -144,10 +144,10 @@ export default function AboutPage() {
                 src="/founders/bharathraji.png"
                 width={150}
                 height={150}
-                alt="BharathRaji"
+                alt="BharathRajiP"
                 className={styles.avatar}
               />
-              <h3>Bharathraji — Co-Founder & CEO</h3>
+              <h3>Bharathraji P — Co-Founder & CEO</h3>
               <p>
                 AI Engineer & Trainer leading Teclury’s technical and educational mission.
               </p>

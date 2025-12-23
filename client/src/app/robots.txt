@@ -1,4 +1,16 @@
 User-agent: *
 Allow: /
 
+# Block backend & internal routes
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /_next/
+Disallow: /server/
+Disallow: /private/
+
+# Allow assets
+Allow: /assets/
+Allow: /images/
+
 Sitemap: https://teclury.in/sitemap.xml
