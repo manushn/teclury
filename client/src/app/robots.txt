@@ -13,4 +13,4 @@ Disallow: /private/
 Allow: /assets/
 Allow: /images/
 
-Sitemap: https://teclury.in/sitemap.xml
+Sitemap: https://www.teclury.in/sitemap.xml
