@@ -3,6 +3,8 @@
 import s from "./css/products.module.css";
 import { useState ,useEffect} from "react";
 import axios from "axios";
+import Chatcompunents from "../components/Chatcomponent"
+
 
 export default function ProductsPage() {
   const [email, setEmail] = useState("");
@@ -50,6 +52,7 @@ export default function ProductsPage() {
 
   return (
     <section className={s.wrapper}>
+      <Chatcompunents/>
       <h1>🚀 Our Products</h1>
       <p className={s.subtitle}>
         We’re building powerful AI products to help businesses and developers

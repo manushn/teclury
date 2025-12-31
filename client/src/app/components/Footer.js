@@ -31,9 +31,9 @@ export default function Footer() {
         
         <div className={styles.links}>
           <h4>Social</h4>
-          <a href="#">LinkedIn</a>
-          <a href="#">GitHub</a>
-          <a href="#">Twitter</a>
+          <a href="https://www.linkedin.com/company/teclury/" target="blank">LinkedIn</a>
+          <a href="https://www.instagram.com/teclury/" target="blank">Instagram</a>
+          <a href="https://github.com/Teclury" target="blank">Github</a>
         </div>
 
         

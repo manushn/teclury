@@ -1,12 +1,13 @@
 import styles from "./css/about.module.css";
 import Image from "next/image";
+import Chatcomponent from "@/app/components/Chatcomponent"
 
 
 export default function AboutPage() {
   return (
     <main className={styles.pageContainer}>
         
-      
+      <Chatcomponent/>
       <section className={styles.hero}>
         <div className={styles.heroEmoji}>🚀</div>
 
