@@ -1,8 +1,10 @@
 import s from "./css/ailab.module.css";
+import Chatcompunents from "../components/Chatcomponent"
 
 export default function AILabPage() {
   return (
     <section className={s.wrapper}>
+      <Chatcompunents/>
       <h1>🧪 Teclury AI Lab</h1>
       <p className={s.subtitle}>
         An open-source AI playground built to help students and developers

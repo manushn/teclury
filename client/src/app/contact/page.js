@@ -3,6 +3,8 @@
 import s from "./css/contactpage.module.css";
 import { use, useState ,useEffect} from "react";
 import axios from "axios";
+import Chatcompunents from "../components/Chatcomponent"
+
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -75,6 +77,7 @@ export default function ContactPage() {
 
   return (
     <section className={s.contactmain}>
+      <Chatcompunents/>
       <div className={s.contact}>
         <h1>Contact Us 📞</h1>
         <p className={s.subtitle}>We would love to hear from you 🥰</p>
