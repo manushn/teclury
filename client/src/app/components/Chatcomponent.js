@@ -36,7 +36,7 @@ export default function ChatWidget() {
     sessionStorage.setItem("teclury_messages", JSON.stringify(messages));
   }, [messages]);
 
-  // auto scroll
+  
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, open]);
