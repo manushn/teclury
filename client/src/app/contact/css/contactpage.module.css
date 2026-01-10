@@ -1,164 +1,546 @@
-/* PAGE WRAPPER */
+/* ========== PAGE WRAPPER ========== */
 .contactmain {
-  padding: 140px 16px 80px;
-  background: #f9fafb;
+  min-height: 100vh;
+  padding: 140px 20px 80px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  position: relative;
+}
+
+.contactmain::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 400px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  opacity: 0.05;
+  z-index: 0;
 }
 
 .contact {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ========== HEADER ========== */
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+  animation: fadeInDown 0.6s ease;
 }
 
 .contact h1 {
-  font-size: 2.4rem;
-  margin-bottom: 8px;
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 16px;
 }
 
 .subtitle {
-  color: #555;
-  margin-bottom: 40px;
+  font-size: 1.2rem;
+  color: #64748b;
+  font-weight: 400;
 }
 
-/* MAIN LAYOUT */
+/* ========== MAIN LAYOUT ========== */
 .formmain {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
   gap: 40px;
-  align-items: flex-start;
+  align-items: start;
 }
 
-/* LEFT FORM CARD */
+/* ========== LEFT FORM CARD ========== */
 .formleft {
-    min-width: 450px;
-  display: flex;
-  flex-direction: column;
-
-  background: #ffffff;
-  padding: 28px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  animation: fadeInLeft 0.6s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.formleft label {
-  margin: 14px 0 6px;
-  font-weight: 500;
+.formleft::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+}
+
+.formHeader {
+  margin-bottom: 32px;
+}
+
+.formHeader h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.formHeader p {
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+/* ========== FORM GROUPS ========== */
+.formGroup {
+  margin-bottom: 24px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #334155;
+  font-size: 0.95rem;
+}
+
+.required {
+  color: #ef4444;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 16px;
+  font-size: 18px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.textareaIcon {
+  top: 16px;
+  align-self: flex-start;
 }
 
 .formleft input,
 .formleft textarea {
-  width: 90%;
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
+  width: 100%;
+  padding: 14px 16px 14px 48px;
+  border-radius: 12px;
+  border: 2px solid #e2e8f0;
   font-size: 1rem;
   outline: none;
+  transition: all 0.3s ease;
+  background: #f8fafc;
+  font-family: inherit;
 }
 
 .formleft input:focus,
 .formleft textarea:focus {
-  border-color: rgb(36, 119, 243);
+  border-color: #667eea;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
 }
 
-/* SUBMIT BUTTON */
-.formleft button {
-  margin-top: 24px;
-  padding: 14px;
-  border: none;
-  border-radius: 8px;
-  background: rgb(36, 119, 243);
-  color: #ffffff;
-  font-size: 1rem;
-  cursor: pointer;
+.formleft textarea {
+  resize: vertical;
+  min-height: 120px;
 }
 
-.formleft button:hover {
-  background: rgb(29, 99, 204);
+.inputError {
+  border-color: #ef4444 !important;
+  background: #fef2f2 !important;
 }
 
-.formleft button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
+.inputError:focus {
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1) !important;
 }
 
-/* RIGHT CONTACT CARD */
-.formright {
-  background: #ffffff;
-  padding: 24px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  min-width: 400px;
-}
-
-.formright h2 {
-  margin-bottom: 10px;
-}
-
-.formright p {
-  color: #555;
-  margin-bottom: 20px;
-}
-
-.contactDetails div {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 14px;
-}
-
-.contactDetails a {
-  color: #000;
-  text-decoration: none;
+.errorText {
+  display: block;
+  margin-top: 6px;
+  color: #ef4444;
+  font-size: 0.85rem;
   font-weight: 500;
 }
 
-.emesage{
-  color:red;
-  margin-top:10px;
+.charCount {
+  text-align: right;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-top: 4px;
 }
-.message{
-  color:green;
-  margin-top:10px;
+
+/* ========== ALERTS ========== */
+.alertError,
+.alertSuccess {
+  padding: 14px 18px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+  animation: slideIn 0.3s ease;
 }
-/* 📱 TABLET & MOBILE */
-@media (max-width: 1100px) and (min-width: 651px) {
+
+.alertError {
+  background: #fef2f2;
+  color: #dc2626;
+  border-left: 4px solid #ef4444;
+}
+
+.alertSuccess {
+  background: #f0fdf4;
+  color: #16a34a;
+  border-left: 4px solid #22c55e;
+}
+
+.alertError span,
+.alertSuccess span {
+  font-size: 20px;
+}
+
+/* ========== SUBMIT BUTTON ========== */
+.submitBtn {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+}
+
+.submitBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+}
+
+.submitBtn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btnIcon {
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.submitBtn:hover:not(:disabled) .btnIcon {
+  transform: translateX(4px);
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ========== RIGHT CONTACT INFO ========== */
+.formright {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  animation: fadeInRight 0.6s ease;
+}
+
+.infoCard {
+  background: white;
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+.infoCard h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 12px;
+}
+
+.infoCard p {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* ========== CONTACT METHODS ========== */
+.contactMethods {
+  background: white;
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+.contactMethods h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 20px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  background: #f8fafc;
+}
+
+.contactItem:hover {
+  background: #f1f5f9;
+  transform: translateX(4px);
+}
+
+.whatsapp:hover {
+  background: #dcfce7;
+}
+
+.iconCircle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.whatsapp .iconCircle {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+}
+
+.contactInfo h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+.contactInfo p {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+/* ========== WORKING HOURS ========== */
+.workingHours {
+  background: white;
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+.workingHours h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 20px;
+}
+
+.hoursList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hoursItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #f8fafc;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.hoursItem span:first-child {
+  font-weight: 600;
+  color: #334155;
+}
+
+.hoursItem span:last-child {
+  color: #64748b;
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== RESPONSIVE - TABLET ========== */
+@media (max-width: 1024px) {
   .formmain {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    grid-template-columns: 1fr;
+  }
+
+  .contact h1 {
+    font-size: 2.5rem;
+  }
+
+  .formleft,
+  .infoCard,
+  .contactMethods,
+  .workingHours {
+    padding: 28px;
+  }
+}
+
+/* ========== RESPONSIVE - MOBILE ========== */
+@media (max-width: 768px) {
+  .contactmain {
+    padding: 120px 16px 60px;
   }
 
   .contact h1 {
     font-size: 2rem;
   }
-  .formleft{
-    min-width: 600px;
-  }
-  .formright{
-    min-width: 500px;
-  }
-  .formleft,
-  .formright {
-    padding: 22px;
-  }
-}
 
-/* 📱 SMALL MOBILE */
-@media (max-width: 650px) {
-  .contactmain {
-    padding-top: 120px;
+  .subtitle {
+    font-size: 1rem;
   }
+
+  .header {
+    margin-bottom: 40px;
+  }
+
   .formmain {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    gap: 24px;
   }
-  .formleft{
-    min-width: 280px;
+
+  .formleft {
+    padding: 24px;
   }
-  .formright{
-    min-width: 200px;
+
+  .formHeader h2 {
+    font-size: 1.5rem;
   }
-  .formleft button {
-    font-size: 0.95rem;
+
+  .infoCard,
+  .contactMethods,
+  .workingHours {
+    padding: 24px;
+  }
+
+  .infoCard h2 {
+    font-size: 1.5rem;
+  }
+
+  .contactMethods h3,
+  .workingHours h3 {
+    font-size: 1.1rem;
+  }
+
+  .formleft input,
+  .formleft textarea {
+    padding: 12px 14px 12px 44px;
+  }
+
+  .submitBtn {
+    padding: 14px;
+    font-size: 1rem;
   }
 }
 
+@media (max-width: 480px) {
+  .contactmain {
+    padding: 100px 12px 40px;
+  }
+
+  .contact h1 {
+    font-size: 1.75rem;
+  }
+
+  .formleft,
+  .infoCard,
+  .contactMethods,
+  .workingHours {
+    padding: 20px;
+  }
+
+  .iconCircle {
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+
+  .hoursItem {
+    flex-direction: column;
+    gap: 4px;
+  }
+}

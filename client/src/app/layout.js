@@ -1,5 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import "./global.css";
+import "./globals.css"; 
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,16 +25,16 @@ export const metadata = {
     "Teclury builds next-generation AI, web, and mobile solutions for startups and businesses. Scalable. Secure. Future-ready.",
 
   keywords: [
-    "AI solutions", 
-    "Software Startup", 
-    "Web Development", 
-    "Next.js Development", 
+    "AI solutions",
+    "Software Startup",
+    "Web Development",
+    "Next.js Development",
     "Teclury",
-    "teclury", 
+    "teclury",
     "Teclury.in",
     "teclury.in",
     "Teclury labs",
-    "teclury labs"
+    "teclury labs",
   ],
 
   robots: {
@@ -51,18 +51,14 @@ export const metadata = {
 
   
   icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/icon.png", type: "image/png", sizes: "192x192" },
-      { url: "/icon.png", type: "image/png", sizes: "512x512" },
-    ],
-    shortcut: ["/favicon.ico"],
-    apple: [
-      { url: "/apple-touch-icon.png" },
-    ],
+    icon: "/icon.png", 
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
+  
+  
+  manifest: "/site.webmanifest",
 
-  /** ✅ CANONICAL URL — HELPS SEO RANKING */
   alternates: {
     canonical: "https://www.teclury.in",
   },
@@ -75,11 +71,13 @@ export const metadata = {
     siteName: "Teclury",
     locale: "en_US",
     type: "website",
+    
+    
     images: [
       {
-        url: "https://www.teclury.in/icon.png", 
-        width: 1200,
-        height: 630,
+        url: "/icon.png", 
+        width: 512, 
+        height: 512, 
         alt: "Teclury AI & Software Solutions",
       },
     ],
@@ -90,7 +88,7 @@ export const metadata = {
     title: "Teclury | Next-Gen AI & Software Solutions",
     description:
       "Building intelligent, scalable software for the future.",
-    images: ["https://www.teclury.in/icon.png"],
+    images: ["/icon.png"], 
   },
 };
 
@@ -98,7 +96,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -112,13 +109,13 @@ export default function RootLayout({ children }) {
                 "https://www.instagram.com/teclury",
                 "https://www.facebook.com/profile.php?id=61585237778058",
                 "https://www.linkedin.com/company/teclury",
-                "https://github.com/teclury"
+                "https://github.com/teclury",
               ],
               contactPoint: {
                 "@type": "ContactPoint",
                 contactType: "customer support",
-                email: "contact@teclury.in" 
-              }
+                email: "contact@teclury.in",
+              },
             }),
           }}
         />

@@ -42,15 +42,15 @@ export default function Header() {
 
       
         <div className={styles.header_right}>
-          
-          <Link href="/products">🚀 Our Products</Link>
-          <Link href="/ailab">🧪 AI Lab</Link>
-          <Link href="/contact">📞 Contact</Link>
-          <Link href="/about">ℹ️ About Us</Link>
+          <Link href="/">Home</Link>
+          <Link href="/products">Our Products</Link>
+          <Link href="/ailab">AI Lab</Link>
+          <Link href="/contact">Contact</Link>
+          <Link href="/about">About Us</Link>
 
           <div className={styles.hbutton_container}>
             <a href="/startproject" className={styles.cta}>
-                🚀 Start a Project
+                Start a Project
             </a>
           </div>
         </div>
@@ -59,7 +59,7 @@ export default function Header() {
         <div className={styles.mobile_actions}>
          
           <a href="/startproject" className={styles.cta}>
-              🚀 Start a Project
+               Start a Project
           </a>
           
           <div
@@ -73,10 +73,11 @@ export default function Header() {
        
         {open && (
           <div className={styles.mobile_dropdown} ref={menuRef}>
-            <Link href="/products">🚀 Our Products</Link>
-          <Link href="/ailab">🧪 AI Lab</Link>
-          <Link href="/contact">📞 Contact</Link>
-           <Link href="/about">ℹ️ About Us</Link>
+            <Link href="/">Home</Link>
+            <Link href="/products">Our Products</Link>
+          <Link href="/ailab">AI Lab</Link>
+          <Link href="/contact">Contact</Link>
+           <Link href="/about">About Us</Link>
           </div>
         )}
       </div>

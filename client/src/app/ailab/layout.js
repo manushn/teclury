@@ -25,7 +25,7 @@ export const metadata = {
     title: "Teclury AI Lab",
     description:
       "Explore Teclury AI Lab — open datasets, experiments, AI agents, and tools built for hands-on learning and innovation.",
-    url: "https://teclury.in/ailab",
+    url: "https://www.teclury.in/ailab",
     siteName: "Teclury",
     type: "website",
   },

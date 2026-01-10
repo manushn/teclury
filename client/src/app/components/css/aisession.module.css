@@ -1,142 +1,609 @@
-.sectionmain {
-  display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 60px;
+/* Section Main */
+.sectionMain {
+  position: relative;
+  padding: 100px 0;
+  overflow: hidden;
 }
+
+/* Background Elements */
+.bgPattern {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(102, 126, 234, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(102, 126, 234, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: 0;
+}
+
+.bgGradient1,
+.bgGradient2 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bgGradient1 {
+  width: 600px;
+  height: 600px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  top: 10%;
+  left: -100px;
+  animation: float 25s ease-in-out infinite;
+}
+
+.bgGradient2 {
+  width: 500px;
+  height: 500px;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  bottom: 10%;
+  right: -100px;
+  animation: float 30s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 30px) scale(0.9);
+  }
+}
+
+/* Container */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 1;
+}
+
 .section {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  padding: 40px 20px;
-  width: 90%;
+  gap: 60px;
+  align-items: start;
 }
 
-.title {
-  font-size: 2rem;
+/* Left Column */
+.left {
+  animation: fadeInLeft 0.8s ease-out;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Header Badge */
+.headerBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  border-radius: 50px;
+  color: #667eea;
   font-weight: 700;
-   width: 700px;
-    position: absolute;
+  font-size: 14px;
+  margin-bottom: 24px;
+  backdrop-filter: blur(10px);
 }
 
+.badgeIcon {
+  width: 18px;
+  height: 18px;
+}
+
+/* Title */
+.title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  color: #1e293b;
+}
+
+.gradientText {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  animation: gradient-shift 8s ease infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Subtitle */
 .subtitle {
-  color: #6b7280;
-  font-size: 16px;
-  margin-top: 60px;
+  font-size: 1.1rem;
+  color: #64748b;
+  line-height: 1.7;
+  margin-bottom: 32px;
 }
 
-
+/* Card Grid */
 .cardGrid {
-  display: grid;
-  gap: 16px;
-  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
+/* AI Solution Cards */
 .card {
-  background: #fff;
-  border: 1px solid #ddd;
-  padding: 20px;
-  border-radius: 12px;
-  text-align: left;
-  max-width: 500px;
-}
-.card:hover{
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
-    
-}
-.cardtop{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 10px;
-}
-.cardtop h3{
-    margin-left: 12px;
-    font-size: 1.2rem;
-}
-.cardImg {
-  margin-bottom: 12px;
+  position: relative;
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  border: 2px solid #f1f5f9;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  animation: fadeInUp 0.8s ease-out backwards;
 }
 
-.small {
-  font-size: 0.9rem;
-  color: #555;
+.card:nth-child(1) {
+  animation-delay: 0.2s;
 }
 
-.right{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.card:nth-child(2) {
+  animation-delay: 0.3s;
 }
 
-.labCard {
-  text-align: center;
-}
-.labhead{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-.labhead h3{
-    margin-left: 12px;
-    font-size: 1.2rem;
+.card:nth-child(3) {
+  animation-delay: 0.4s;
 }
 
-.roadmapWrap {
-  margin-top: 20px;
-  text-align: left;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.roadmap {
-  margin-top: 14px;
-  display: grid;
-  gap: 14px;
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #667eea, #764ba2, #f093fb);
+  transform: scaleY(0);
+  transition: transform 0.4s ease;
 }
 
-.road {
+.card:hover::before {
+  transform: scaleY(1);
+}
+
+.cardGlow {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(circle at center, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card:hover .cardGlow {
+  opacity: 1;
+}
+
+.card:hover {
+  transform: translateX(8px);
+  border-color: #667eea;
+  box-shadow: 0 12px 40px rgba(102, 126, 234, 0.15);
+}
+
+/* Card Top */
+.cardTop {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 14px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
+  gap: 16px;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
 }
 
-.roadIcon {
+.iconWrapper {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.card:hover .iconWrapper {
+  transform: scale(1.05) rotate(3deg);
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
+}
+
+.cardImg {
+  transition: transform 0.3s ease;
+}
+
+.card:hover .cardImg {
+  transform: scale(1.1);
+}
+
+/* Card Header */
+.cardHeader {
+  flex: 1;
+}
+
+.cardHeader h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 6px;
+}
+
+.cardBadge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #667eea;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Card Description */
+.cardDescription {
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+/* Right Column */
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  animation: fadeInRight 0.8s ease-out 0.2s backwards;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Lab Card */
+.labCard {
+  position: relative;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 40px;
+  border-radius: 24px;
+  color: white;
+  box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+  overflow: hidden;
+  width: 100%;
+  max-width: 550px;
+}
+
+.labGlow {
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+  animation: float 15s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Lab Header */
+.labHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.labIconWrapper {
+  width: 56px;
+  height: 56px;
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
 }
 
+.labIcon {
+  filter: brightness(1) invert(0);
+}
 
+.labTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
 
-@media (max-width: 900px) {
+/* Lab Description */
+.labDescription {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  opacity: 0.95;
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Roadmap Section */
+.roadmapSection {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+.roadmapHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.roadmapIcon {
+  width: 20px;
+  height: 20px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Roadmap */
+.roadmap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.roadItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+}
+
+.roadItem:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(4px);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.roadNumber {
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.roadContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.roadContent strong {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.roadTime {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.roadArrow {
+  width: 24px;
+  height: 24px;
+  color: rgba(255, 255, 255, 0.7);
+  flex-shrink: 0;
+}
+
+.roadArrow svg {
+  width: 100%;
+  height: 100%;
+}
+
+.roadCheck {
+  width: 32px;
+  height: 32px;
+  background: rgba(16, 185, 129, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+.roadCheck svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
   .section {
     grid-template-columns: 1fr;
-  }
-  .title{
-    width: 800px;
+    gap: 60px;
   }
 
-  .right {
-    margin-top: 24px;
+  .container {
+    padding: 0 32px;
   }
-  .cardGrid {
-    justify-content: center;
+
+  .labCard {
+    max-width: 100%;
   }
 }
 
-@media (max-width: 600px) {
-  .title {
-    font-size: 1.6rem;
-    width: 300px;
-  }
-  .subtitle{
-    margin-top: 80px;
+@media (max-width: 768px) {
+  .sectionMain {
+    padding: 80px 0;
   }
 
-  .card,
-  .road {
+  .container {
+    padding: 0 24px;
+  }
+
+  .section {
+    gap: 48px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .iconWrapper {
+    width: 56px;
+    height: 56px;
+  }
+
+  .cardHeader h3 {
+    font-size: 1.1rem;
+  }
+
+  .labCard {
+    padding: 32px;
+  }
+
+  .labTitle {
+    font-size: 1.3rem;
+  }
+
+  .roadItem {
+    flex-wrap: wrap;
+  }
+
+  .roadArrow {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .sectionMain {
+    padding: 60px 0;
+  }
+
+  .headerBadge {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .cardTop {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .labCard {
+    padding: 24px;
+  }
+
+  .labHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .roadmapSection {
+    padding: 20px;
+  }
+
+  .roadItem {
     padding: 12px;
+  }
+
+  .roadNumber {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
   }
 }

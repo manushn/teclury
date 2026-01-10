@@ -2,71 +2,155 @@ import styles from "./css/services.module.css";
 import Image from "next/image";
 
 export default function Services() {
-    return(
-    <section id="services" className={styles.services_full}>
-      <div className={styles.services_container}>
-        <div className={styles.services_top}>
-          <h1>Services — focused on delivery</h1>
-          <p>Client work is our core. We deliver end-to-end projects: discovery, engineering, deployment and managed operations.</p>
+  return (
+    <section id="services" className={styles.servicesFull}>
+      {/* Background Elements */}
+      <div className={styles.bgPattern}></div>
+      <div className={styles.bgGradient}></div>
+
+      <div className={styles.servicesContainer}>
+        {/* Header Section */}
+        <div className={styles.servicesHeader}>
+          <div className={styles.headerBadge}>
+            <svg className={styles.badgeIcon} viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
+            </svg>
+            <span>What We Offer</span>
+          </div>
+
+          <h2 className={styles.servicesTitle}>
+            Services — <span className={styles.gradientText}>focused on delivery</span>
+          </h2>
+
+          <p className={styles.servicesSubtitle}>
+            Client work is our core. We deliver end-to-end projects: discovery, engineering, 
+            deployment and managed operations.
+          </p>
         </div>
 
-        <div className={styles.services_bottom}>
-
-          <div className={styles.service_card}>
-            <div className={styles.service_icon}>
-              <Image src="/serv/fullstacklogo.png" alt="Icon 1" width={60} height={60} />
-              <h3>Full-Stack Development</h3>
+        {/* Services Grid */}
+        <div className={styles.servicesGrid}>
+          {/* Service Card 1 */}
+          <div className={styles.serviceCard}>
+            <div className={styles.cardGlow}></div>
+            <div className={styles.iconWrapper}>
+              <Image 
+                src="/serv/fullstacklogo.png" 
+                alt="Full-Stack Development" 
+                width={56} 
+                height={56}
+                className={styles.serviceIcon}
+              />
             </div>
-            <p>End-to-end web & mobile apps using modern frameworks. Fast MVPs, robust APIs, and production ops.</p>
+            <h3 className={styles.cardTitle}>Full-Stack Development</h3>
+            <p className={styles.cardDescription}>
+              End-to-end web & mobile apps using modern frameworks. Fast MVPs, robust APIs, 
+              and production ops.
+            </p>
+            
           </div>
 
-          <div className={styles.service_card}>
-            <div className={styles.service_icon}>
-              
-              <Image src="/serv/ailogo.png" alt="Icon 2" width={60} height={60} />
-              <h3>AI & Machine Learning</h3>
+          {/* Service Card 2 */}
+          <div className={styles.serviceCard}>
+            <div className={styles.cardGlow}></div>
+            <div className={styles.iconWrapper}>
+              <Image 
+                src="/serv/ailogo.png" 
+                alt="AI & Machine Learning" 
+                width={56} 
+                height={56}
+                className={styles.serviceIcon}
+              />
             </div>
-            <p>LLM integrations, embedding search, automation pipelines, and domain-specific models for real outcomes.</p>
+            <h3 className={styles.cardTitle}>AI & Machine Learning</h3>
+            <p className={styles.cardDescription}>
+              LLM integrations, embedding search, automation pipelines, and domain-specific 
+              models for real outcomes.
+            </p>
+            
           </div>
 
-          <div className={styles.service_card}>
-            <div className={styles.service_icon}>
-              
-              <Image src="/serv/cloudlogo.png" alt="Icon 3" width={60} height={60} />
-              <h3>Cloud & DevOps</h3>
+          {/* Service Card 3 */}
+          <div className={styles.serviceCard}>
+            <div className={styles.cardGlow}></div>
+            <div className={styles.iconWrapper}>
+              <Image 
+                src="/serv/cloudlogo.png" 
+                alt="Cloud & DevOps" 
+                width={56} 
+                height={56}
+                className={styles.serviceIcon}
+              />
             </div>
-            <p>Scalable infra, containers, CI/CD, monitoring, and secure deployments for production reliability.</p>
+            <h3 className={styles.cardTitle}>Cloud & DevOps</h3>
+            <p className={styles.cardDescription}>
+              Scalable infra, containers, CI/CD, monitoring, and secure deployments for 
+              production reliability.
+            </p>
+            
           </div>
 
-          <div className={styles.service_card}>
-            <div className={styles.service_icon}>
-             
-              <Image src="/serv/uiux.png" alt="Icon 4" width={60} height={60} />
-               <h3>UI/UX Design</h3>
+          {/* Service Card 4 */}
+          <div className={styles.serviceCard}>
+            <div className={styles.cardGlow}></div>
+            <div className={styles.iconWrapper}>
+              <Image 
+                src="/serv/uiux.png" 
+                alt="UI/UX Design" 
+                width={56} 
+                height={56}
+                className={styles.serviceIcon}
+              />
             </div>
-            <p>Research-led design, prototyping, and design systems that increase adoption and retention.</p>
+            <h3 className={styles.cardTitle}>UI/UX Design</h3>
+            <p className={styles.cardDescription}>
+              Research-led design, prototyping, and design systems that increase adoption 
+              and retention.
+            </p>
+            
           </div>
 
-          <div className={styles.service_card}>
-            <div className={styles.service_icon}>
-              
-              <Image src="/serv/digitalmarketing.png" alt="Icon 5" width={60} height={60} />
-              <h3>Digital Marketing</h3>
+          {/* Service Card 5 */}
+          <div className={styles.serviceCard}>
+            <div className={styles.cardGlow}></div>
+            <div className={styles.iconWrapper}>
+              <Image 
+                src="/serv/digitalmarketing.png" 
+                alt="Digital Marketing" 
+                width={56} 
+                height={56}
+                className={styles.serviceIcon}
+              />
             </div>
-            <p>SEO, content marketing, and growth strategies to drive traffic, leads, and conversions.</p>
+            <h3 className={styles.cardTitle}>Digital Marketing</h3>
+            <p className={styles.cardDescription}>
+              SEO, content marketing, and growth strategies to drive traffic, leads, 
+              and conversions.
+            </p>
+            
           </div>
 
-          <div className={styles.service_card}>
-            <div className={styles.service_icon}>
-             
-              <Image src="/serv/support.png" alt="Icon 6" width={60} height={60} />
-               <h3>Managed Support</h3>
+          {/* Service Card 6 */}
+          <div className={styles.serviceCard}>
+            <div className={styles.cardGlow}></div>
+            <div className={styles.iconWrapper}>
+              <Image 
+                src="/serv/support.png" 
+                alt="Managed Support" 
+                width={56} 
+                height={56}
+                className={styles.serviceIcon}
+              />
             </div>
-            <p>Technical due diligence, architecture reviews, and strategic roadmaps to align tech with business goals.</p>
+            <h3 className={styles.cardTitle}>Managed Support</h3>
+            <p className={styles.cardDescription}>
+              Technical due diligence, architecture reviews, and strategic roadmaps to align 
+              tech with business goals.
+            </p>
+            
           </div>
-
         </div>
       </div>
     </section>
-    )
+  );
 }

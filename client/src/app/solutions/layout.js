@@ -25,7 +25,7 @@ export const metadata = {
     title: "Teclury AI Solutions",
     description:
       "Discover Teclury’s AI-powered solutions designed to automate workflows, enhance decision-making, and scale businesses.",
-    url: "https://teclury.in/solutions",
+    url: "https://www.teclury.in/solutions",
     siteName: "Teclury",
     type: "website",
   },
