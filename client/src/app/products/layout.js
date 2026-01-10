@@ -25,7 +25,7 @@ export const metadata = {
     title: "Teclury Products",
     description:
       "Discover Teclury’s AI products including our AI Sales Agent and chatbot APIs built for scalable business automation.",
-    url: "https://teclury.in/products",
+    url: "https://www.teclury.in/products",
     siteName: "Teclury",
     type: "website",
   },

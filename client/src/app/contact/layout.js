@@ -24,7 +24,7 @@ export const metadata = {
     title: "Contact Teclury",
     description:
       "Have an idea or need help? Contact Teclury and get expert guidance on your next digital product.",
-    url: "https://teclury.in/contact",
+    url: "https://www.teclury.in/contact",
     siteName: "Teclury",
     type: "website",
   },

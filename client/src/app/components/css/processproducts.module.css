@@ -1,49 +1,425 @@
-.section{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* Section */
+.section {
+  position: relative;
+  padding: 100px 0;
+  overflow: hidden;
 }
-.processmain{
-    width: 90%;
 
+/* Background Elements */
+.bgPattern {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(102, 126, 234, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(102, 126, 234, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: 0;
 }
-.sectiontitle h2{
-    font-size:26px;
-    font-weight: bold;
-    text-align: center;
+
+.bgGradient {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(102, 126, 234, 0.08) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
 }
-.sectionsub{
-    margin-top: 10px;
-    text-align: center;
-    color: #6b7280;
-    font-size: 16px;
+
+/* Main Container */
+.processMain {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 1;
 }
+
+/* Section Header */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 64px;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.headerBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  border-radius: 50px;
+  color: #667eea;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 24px;
+  backdrop-filter: blur(10px);
+}
+
+.badgeIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.sectionTitle {
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.gradientText {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  animation: gradient-shift 8s ease infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.sectionSubtitle {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Steps Container */
 .steps {
   display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
+/* Step Wrapper (includes connector) */
+.stepWrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Connector Line */
+.connector {
+  flex: 0 0 80px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  margin: 0 -20px;
+  position: relative;
+  z-index: 0;
+}
+
+.connector svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Last step doesn't need connector */
+.stepWrapper:last-child .connector {
+  display: none;
+}
+
+/* Step Card */
+.step {
+  flex: 1;
+  position: relative;
+  background: white;
+  padding: 32px 24px;
+  border-radius: 20px;
+  border: 2px solid #f1f5f9;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  overflow: hidden;
+  text-align: center;
+}
+
+.step::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.step:hover::before {
+  transform: scaleX(1);
+}
+
+.stepGlow {
+  position: absolute;
+  inset: -30px;
+  background: radial-gradient(circle at center, rgba(102, 126, 234, 0.15) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.step:hover .stepGlow {
+  opacity: 1;
+}
+
+.step:hover {
+  transform: translateY(-8px);
+  border-color: #667eea;
+  box-shadow: 0 20px 60px rgba(102, 126, 234, 0.15);
+}
+
+/* Step Number */
+.stepNumber {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  border-radius: 50%;
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  margin-top: 40px;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: #667eea;
+  transition: all 0.3s ease;
 }
 
-.step{
-    background: #ffffff;
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: 0 14px 36px rgba(16, 24, 64, 0.06);
-    cursor: pointer;
-    transition: transform 0.5s ease;
-    margin-bottom: 30px;
-    width: 220px;
+.step:hover .stepNumber {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  transform: scale(1.1);
 }
 
-@media (max-width: 600px){
-    .steps{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
+/* Icon Wrapper */
+.iconWrapper {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
 
+.step:hover .iconWrapper {
+  transform: scale(1.05) rotate(3deg);
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
+}
+
+.stepIcon {
+  width: 36px;
+  height: 36px;
+  color: #667eea;
+  stroke-width: 2;
+  transition: all 0.3s ease;
+}
+
+.step:hover .stepIcon {
+  transform: scale(1.1);
+  color: #764ba2;
+}
+
+/* Step Content */
+.stepTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.stepDescription {
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Step Tags */
+.stepTags {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.stepTags span {
+  padding: 6px 14px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  border-radius: 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #667eea;
+  transition: all 0.2s ease;
+}
+
+.step:hover .stepTags span {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+/* Staggered Animations */
+.stepWrapper:nth-child(1) .step {
+  animation: fadeInUp 0.8s ease-out 0.3s backwards;
+}
+
+.stepWrapper:nth-child(2) .step {
+  animation: fadeInUp 0.8s ease-out 0.4s backwards;
+}
+
+.stepWrapper:nth-child(3) .step {
+  animation: fadeInUp 0.8s ease-out 0.5s backwards;
+}
+
+.stepWrapper:nth-child(4) .step {
+  animation: fadeInUp 0.8s ease-out 0.6s backwards;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .processMain {
+    padding: 0 32px;
+  }
+
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .stepWrapper {
+    flex-direction: column;
+  }
+
+  .connector {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 0;
+  }
+
+  .processMain {
+    padding: 0 24px;
+  }
+
+  .sectionHeader {
+    margin-bottom: 48px;
+  }
+
+  .sectionTitle {
+    font-size: 2.2rem;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .step {
+    padding: 28px 20px;
+  }
+
+  .iconWrapper {
+    width: 64px;
+    height: 64px;
+  }
+
+  .stepIcon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .stepTitle {
+    font-size: 1.3rem;
+  }
+
+  .stepDescription {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .processMain {
+    padding: 0 16px;
+  }
+
+  .section {
+    padding: 60px 0;
+  }
+
+  .headerBadge {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+
+  .sectionSubtitle {
+    font-size: 0.95rem;
+  }
+
+  .step {
+    padding: 24px 16px;
+  }
+
+  .stepNumber {
+    width: 36px;
+    height: 36px;
+    font-size: 0.85rem;
+  }
+
+  .stepTags {
+    gap: 6px;
+  }
+
+  .stepTags span {
+    padding: 5px 12px;
+    font-size: 0.75rem;
+  }
+}

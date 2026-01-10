@@ -25,7 +25,7 @@ export const metadata = {
     title: "About Teclury",
     description:
       "Discover Teclury’s mission, vision, and journey in building impactful AI-powered and full-stack solutions.",
-    url: "https://teclury.in/about",
+    url: "https://www.teclury.in/about",
     siteName: "Teclury",
     type: "website",
   },

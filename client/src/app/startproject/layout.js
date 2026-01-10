@@ -24,7 +24,7 @@ export const metadata = {
     title: "Start Your Project with Teclury",
     description:
       "Tell us about your idea and get a custom project proposal within 24 hours.",
-    url: "https://yourdomain.com/startproject",
+    url: "https://www.teclury.in/startproject",
     siteName: "Teclury",
     type: "website",
   },
