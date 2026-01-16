@@ -51,9 +51,9 @@ export const metadata = {
 
   
   icons: {
-    icon: "/icon.png", 
+    icon: "/iconv2.png", 
     shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    apple: "/apple-touch-iconv2.png",
   },
   
   
@@ -75,7 +75,7 @@ export const metadata = {
     
     images: [
       {
-        url: "/icon.png", 
+        url: "/iconv2.png", 
         width: 512, 
         height: 512, 
         alt: "Teclury AI & Software Solutions",
@@ -88,7 +88,7 @@ export const metadata = {
     title: "Teclury | Next-Gen AI & Software Solutions",
     description:
       "Building intelligent, scalable software for the future.",
-    images: ["/icon.png"], 
+    images: ["/iconv2.png"], 
   },
 };
 
@@ -104,7 +104,7 @@ export default function RootLayout({ children }) {
               "@type": "Organization",
               name: "Teclury",
               url: "https://www.teclury.in",
-              logo: "https://www.teclury.in/icon.png",
+              logo: "https://www.teclury.in/iconv2.png",
               sameAs: [
                 "https://www.instagram.com/teclury",
                 "https://www.facebook.com/profile.php?id=61585237778058",
